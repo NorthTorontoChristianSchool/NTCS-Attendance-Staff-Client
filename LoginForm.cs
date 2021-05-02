@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security;
@@ -92,11 +87,8 @@ namespace NTCSAttendanceStaffClient
             // Try to erase the password from memory
             // (this probably doesn't work and is bad practice
             // but thankfully the pasword isn't very important!)
-            Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
-                string overwriteString = new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 256).Select(s => s[random.Next(s.Length)]).ToArray());
-                PasswordBox.Text = overwriteString;
                 PasswordBox.Text = null;
                 GC.Collect();
             }
