@@ -46,64 +46,61 @@ namespace NTCSAttendanceStaffClient
             // UsernameBox
             // 
             this.UsernameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameBox.Location = new System.Drawing.Point(125, 101);
-            this.UsernameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UsernameBox.Location = new System.Drawing.Point(167, 124);
+            this.UsernameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Size = new System.Drawing.Size(287, 26);
-            this.UsernameBox.TabIndex = 0;
+            this.UsernameBox.Size = new System.Drawing.Size(381, 30);
+            this.UsernameBox.TabIndex = 4;
             // 
             // PasswordBox
             // 
             this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordBox.Location = new System.Drawing.Point(125, 136);
-            this.PasswordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordBox.Location = new System.Drawing.Point(167, 167);
+            this.PasswordBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(287, 26);
-            this.PasswordBox.TabIndex = 0;
+            this.PasswordBox.Size = new System.Drawing.Size(381, 30);
+            this.PasswordBox.TabIndex = 6;
             this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // LoginTitleLabel
             // 
             this.LoginTitleLabel.AutoSize = true;
             this.LoginTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginTitleLabel.Location = new System.Drawing.Point(46, 7);
-            this.LoginTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LoginTitleLabel.Location = new System.Drawing.Point(61, 9);
             this.LoginTitleLabel.Name = "LoginTitleLabel";
-            this.LoginTitleLabel.Size = new System.Drawing.Size(372, 29);
-            this.LoginTitleLabel.TabIndex = 1;
+            this.LoginTitleLabel.Size = new System.Drawing.Size(455, 36);
+            this.LoginTitleLabel.TabIndex = 0;
             this.LoginTitleLabel.Text = "Attendance Management Login";
             // 
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(11, 104);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameLabel.Location = new System.Drawing.Point(15, 128);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(83, 20);
-            this.UsernameLabel.TabIndex = 2;
+            this.UsernameLabel.Size = new System.Drawing.Size(102, 25);
+            this.UsernameLabel.TabIndex = 3;
             this.UsernameLabel.Text = "Username";
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(11, 139);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(15, 171);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(78, 20);
-            this.PasswordLabel.TabIndex = 3;
+            this.PasswordLabel.Size = new System.Drawing.Size(98, 25);
+            this.PasswordLabel.TabIndex = 5;
             this.PasswordLabel.Text = "Password";
             // 
             // ExitButton
             // 
             this.ExitButton.BackColor = System.Drawing.Color.Red;
             this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.Location = new System.Drawing.Point(74, 202);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExitButton.Location = new System.Drawing.Point(99, 249);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(100, 40);
-            this.ExitButton.TabIndex = 4;
+            this.ExitButton.Size = new System.Drawing.Size(133, 49);
+            this.ExitButton.TabIndex = 8;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
@@ -112,21 +109,22 @@ namespace NTCSAttendanceStaffClient
             // 
             this.LoginButton.BackColor = System.Drawing.Color.YellowGreen;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(263, 202);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Location = new System.Drawing.Point(351, 249);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(100, 40);
-            this.LoginButton.TabIndex = 5;
+            this.LoginButton.Size = new System.Drawing.Size(133, 49);
+            this.LoginButton.TabIndex = 9;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NTCSAttendanceStaffClient.Properties.Resources.KeyIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(44, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -135,50 +133,50 @@ namespace NTCSAttendanceStaffClient
             // 
             this.ServerLabel.AutoSize = true;
             this.ServerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerLabel.Location = new System.Drawing.Point(11, 69);
-            this.ServerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ServerLabel.Location = new System.Drawing.Point(15, 85);
             this.ServerLabel.Name = "ServerLabel";
-            this.ServerLabel.Size = new System.Drawing.Size(91, 20);
-            this.ServerLabel.TabIndex = 7;
+            this.ServerLabel.Size = new System.Drawing.Size(116, 25);
+            this.ServerLabel.TabIndex = 1;
             this.ServerLabel.Text = "SQL Server";
             // 
             // ServerBox
             // 
             this.ServerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerBox.Location = new System.Drawing.Point(125, 66);
-            this.ServerBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ServerBox.Location = new System.Drawing.Point(167, 81);
+            this.ServerBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ServerBox.Name = "ServerBox";
-            this.ServerBox.Size = new System.Drawing.Size(287, 26);
-            this.ServerBox.TabIndex = 8;
+            this.ServerBox.Size = new System.Drawing.Size(381, 30);
+            this.ServerBox.TabIndex = 2;
             // 
             // RememberCheckBox
             // 
             this.RememberCheckBox.AutoSize = true;
-            this.RememberCheckBox.Location = new System.Drawing.Point(15, 171);
+            this.RememberCheckBox.Location = new System.Drawing.Point(20, 210);
+            this.RememberCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.RememberCheckBox.Name = "RememberCheckBox";
-            this.RememberCheckBox.Size = new System.Drawing.Size(132, 17);
-            this.RememberCheckBox.TabIndex = 9;
-            this.RememberCheckBox.Text = "Remember Information";
+            this.RememberCheckBox.Size = new System.Drawing.Size(298, 21);
+            this.RememberCheckBox.TabIndex = 7;
+            this.RememberCheckBox.Text = "Remember Server Address and Username";
             this.RememberCheckBox.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 253);
-            this.Controls.Add(this.RememberCheckBox);
-            this.Controls.Add(this.ServerBox);
-            this.Controls.Add(this.ServerLabel);
+            this.ClientSize = new System.Drawing.Size(564, 311);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.LoginTitleLabel);
+            this.Controls.Add(this.ServerLabel);
+            this.Controls.Add(this.ServerBox);
+            this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.UsernameBox);
+            this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.PasswordBox);
+            this.Controls.Add(this.RememberCheckBox);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.UsernameLabel);
-            this.Controls.Add(this.LoginTitleLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

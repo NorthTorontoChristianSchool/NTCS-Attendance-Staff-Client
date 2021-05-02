@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace NTCSAttendanceStaffClient
 {
-    public partial class LoginForm : Form
+    public partial class MainMenuForm : Form
     {
-        public LoginForm()
+        public MainMenuForm()
         {
             InitializeComponent();
-        }
-
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
