@@ -66,11 +66,11 @@ namespace NTCSAttendanceStaffClient
             // 
             this.LoginTitleLabel.AutoSize = true;
             this.LoginTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginTitleLabel.Location = new System.Drawing.Point(61, 9);
+            this.LoginTitleLabel.Location = new System.Drawing.Point(161, 9);
             this.LoginTitleLabel.Name = "LoginTitleLabel";
-            this.LoginTitleLabel.Size = new System.Drawing.Size(455, 36);
+            this.LoginTitleLabel.Size = new System.Drawing.Size(246, 36);
             this.LoginTitleLabel.TabIndex = 0;
-            this.LoginTitleLabel.Text = "Attendance Management Login";
+            this.LoginTitleLabel.Text = "AtteNTCS Login";
             // 
             // UsernameLabel
             // 
@@ -180,7 +180,7 @@ namespace NTCSAttendanceStaffClient
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "AtteNTCS Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

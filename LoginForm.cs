@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security;
@@ -69,7 +67,7 @@ namespace NTCSAttendanceStaffClient
             builder["Server"] = ServerBox.Text;
             builder["Database"] = "studentmanagement";  // hard coded name of database
             builder["Trusted_Connection"] = "false";    // Won't support Kerberos at this time
-            builder["Connection Timeout"] = 2;
+            builder["Connection Timeout"] = 3;
             SqlConnectionInfo.ConnectionString = builder.ToString();
 
             // Turn the string in the PasswordBox into a SecureString

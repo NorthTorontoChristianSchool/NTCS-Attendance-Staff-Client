@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NTCSAttendanceStaffClient
@@ -23,7 +20,7 @@ namespace NTCSAttendanceStaffClient
 
             if (!mutexResult)
             {
-                MessageBox.Show("Another instance of the Attendance Mangement Client is already open.", "Already Running", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Another instance of the Attendance Mangement Client is already open.", "Already Running", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
