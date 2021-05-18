@@ -63,11 +63,13 @@ namespace NTCSAttendanceStaffClient
             }
 
             // Build the SQL connection string and store it
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder["Server"] = ServerBox.Text;
-            builder["Database"] = "studentmanagement";  // hard coded name of database
-            builder["Trusted_Connection"] = "false";    // Won't support Kerberos at this time
-            builder["Connection Timeout"] = 3;
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+                ["Server"] = ServerBox.Text,
+                ["Database"] = "studentmanagement",  // hard coded name of database
+                ["Trusted_Connection"] = "false",    // Won't support Windows Authentication at this time
+                ["Connection Timeout"] = 3
+            };
             SqlConnectionInfo.ConnectionString = builder.ToString();
 
             // Turn the string in the PasswordBox into a SecureString
@@ -82,16 +84,6 @@ namespace NTCSAttendanceStaffClient
 
             SqlConnectionInfo.Credentials = new SqlCredential(UsernameBox.Text, SqlConnectionInfo.SecurePassword);
 
-            // Try to erase the password from memory
-            // (this probably doesn't work and is bad practice
-            // but thankfully the pasword isn't very important!)
-            for (int i = 0; i < 5; i++)
-            {
-                PasswordBox.Text = null;
-                GC.Collect();
-            }
-            PasswordBox.Text = "";
-
             bool success = false;
             // Test the connection
             using (SqlConnection conn = new SqlConnection(SqlConnectionInfo.ConnectionString))
@@ -103,15 +95,18 @@ namespace NTCSAttendanceStaffClient
                     conn.Close();
                     success = true;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Login failed. Either the username, password or server address are wrong, or the network connection is not working.", "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Login failed. The following error occured:\r\n" + ex.Message, "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             if (success)
             {
                 LoginSuccess = true;
+                // hopefully the password is gone (it probably isn't but whatever)
+                PasswordBox.Dispose();
+                GC.Collect();
                 Close();
             }
         }

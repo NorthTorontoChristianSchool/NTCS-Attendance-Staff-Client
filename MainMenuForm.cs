@@ -15,6 +15,7 @@ namespace NTCSAttendanceStaffClient
         public MainMenuForm()
         {
             InitializeComponent();
+            GC.Collect();
         }
 
         private void AboutButton_Click(object sender, EventArgs e)

@@ -36,10 +36,10 @@ namespace NTCSAttendanceStaffClient
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ServerLabel = new System.Windows.Forms.Label();
             this.ServerBox = new System.Windows.Forms.TextBox();
             this.RememberCheckBox = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,17 +118,6 @@ namespace NTCSAttendanceStaffClient
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::NTCSAttendanceStaffClient.Properties.Resources.KeyIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // ServerLabel
             // 
             this.ServerLabel.AutoSize = true;
@@ -158,6 +147,17 @@ namespace NTCSAttendanceStaffClient
             this.RememberCheckBox.TabIndex = 7;
             this.RememberCheckBox.Text = "Remember Server Address and Username";
             this.RememberCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::NTCSAttendanceStaffClient.Properties.Resources.KeyIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
