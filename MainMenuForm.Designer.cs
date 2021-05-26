@@ -29,6 +29,7 @@ namespace NTCSAttendanceStaffClient
         /// </summary>
         private void InitializeComponent()
         {
+            this.Icon = Properties.Resources.NTCSIcon;
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ManageStudentsButton = new System.Windows.Forms.Button();
             this.ManageFamiliesButton = new System.Windows.Forms.Button();
@@ -144,6 +145,7 @@ namespace NTCSAttendanceStaffClient
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.ExitButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AtteNTCS Main Menu";

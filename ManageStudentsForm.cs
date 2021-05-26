@@ -13,6 +13,9 @@ namespace NTCSAttendanceStaffClient
 {
     public partial class ManageStudentsForm : Form
     {
+        private bool SearchActive = false;
+        private string SearchString = "";
+
         public ManageStudentsForm()
         {
             InitializeComponent();
@@ -27,42 +30,74 @@ namespace NTCSAttendanceStaffClient
                     // supply the credentials to the connection
                     conn.Credential = SqlConnectionInfo.Credentials;
 
-                    // command
-                    using (SqlCommand sqlCmd = new SqlCommand())
+                    // use parameterized query if searching
+                    if (SearchActive)
                     {
-                        sqlCmd.Connection = conn;
-                        sqlCmd.CommandType = CommandType.Text;
-                        sqlCmd.CommandText = "SELECT * FROM Students ORDER BY LastName";  // Select all the col's of the Students table
-                        SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
+                        using (SqlCommand sqlCmd = new SqlCommand())
+                        {
+                            sqlCmd.Connection = conn;
+                            sqlCmd.CommandType = CommandType.Text;
+                            sqlCmd.CommandText = "SELECT StudentID AS 'Student ID', FamilyID AS 'Family ID', LastName AS 'Last Name', FirstName AS 'First Name', Homeroom, StudentEmail AS 'Student Email', KioskPersonalMessage AS 'Kiosk Personal Message', KioskMessageStartDate AS 'Kiosk Message Start Date', KioskMessageExpiryDate AS 'Kiosk Message Expiry Date' FROM Students WHERE (StudentID LIKE @Search OR FamilyID LIKE @Search OR CONCAT(FirstName, ' ', LastName) LIKE @Search OR Homeroom LIKE @Search OR StudentEmail LIKE @Search OR KioskPersonalMessage LIKE @Search) ORDER BY LastName";
+                            sqlCmd.Parameters.AddWithValue("@Search", "%" + SearchString + "%");
+                            SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
-                        DataTable dtRecord = new DataTable();
-                        sqlDataAdap.Fill(dtRecord);
-                        StudentDataGridView.DataSource = dtRecord;
+                            DataTable dtRecord = new DataTable();
+                            sqlDataAdap.Fill(dtRecord);
+                            StudentDataGridView.DataSource = dtRecord;
+                        }
+                    }
+                    // default to selecting everything
+                    else
+                    {
+                        using (SqlCommand sqlCmd = new SqlCommand())
+                        {
+                            sqlCmd.Connection = conn;
+                            sqlCmd.CommandType = CommandType.Text;
+                            sqlCmd.CommandText = "SELECT StudentID AS 'Student ID', FamilyID AS 'Family ID', LastName AS 'Last Name', FirstName AS 'First Name', Homeroom, StudentEmail AS 'Student Email', KioskPersonalMessage AS 'Kiosk Personal Message', KioskMessageStartDate AS 'Kiosk Message Start Date', KioskMessageExpiryDate AS 'Kiosk Message Expiry Date' FROM Students ORDER BY LastName";
+                            SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
+
+                            DataTable dtRecord = new DataTable();
+                            sqlDataAdap.Fill(dtRecord);
+                            StudentDataGridView.DataSource = dtRecord;
+                        }
                     }
                 }
             }
             catch (SqlException ex)
             {
-                SqlConnectionInfo.ShowRuntimeConnectionErrorMessage(ex.Message);
+                SqlError.ShowRuntimeConnectionErrorMessage(ex.Message);
             }
         }
 
         private void ManageStudentsForm_Load(object sender, EventArgs e)
         {
-            LoadData();
+            this.LoadData();
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            LoadData();
+            SearchBox.Text = SearchString;
+            this.LoadData();
         }
 
-        private void StudentDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            if (!(MessageBox.Show("Are you sure you want to delete the selected student(s)?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
-            {
-                e.Cancel = true;
-            }
+            SearchActive = true;
+            SearchString = SearchBox.Text;
+            this.LoadData();
+        }
+
+        private void ClearSearchButton_Click(object sender, EventArgs e)
+        {
+            SearchActive = false;
+            SearchString = "";
+            SearchBox.Text = "";
+            this.LoadData();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

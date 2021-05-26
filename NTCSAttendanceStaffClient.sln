@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTCS Attendance Staff Client", "NTCS Attendance Staff Client.csproj", "{F0973EBC-856D-4E88-94BA-3039C84C9385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTCSAttendanceStaffClient", "NTCSAttendanceStaffClient.csproj", "{F0973EBC-856D-4E88-94BA-3039C84C9385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

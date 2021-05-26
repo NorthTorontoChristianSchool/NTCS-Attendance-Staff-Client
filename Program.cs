@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NTCSAttendanceStaffClient
@@ -15,12 +16,11 @@ namespace NTCSAttendanceStaffClient
             Application.SetCompatibleTextRenderingDefault(false);
 
             // make a mutex and detect if another instance of the program is running
-            bool mutexResult;
-            var mutex = new System.Threading.Mutex(true, "UniqueAppId", out mutexResult);
+            Mutex mutex = new Mutex(true, "UniqueAppId", out bool mutexResult);
 
             if (!mutexResult)
             {
-                MessageBox.Show("Another instance of the Attendance Mangement Client is already open.", "Already Running", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Another instance of the Attendance Mangement Client is already open.", "Already Running", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

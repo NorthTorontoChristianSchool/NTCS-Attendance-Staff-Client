@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AtteNTCS Staff Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The client for school office staff to manage the AtteNTCS attendance management system.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("North Toronto Christian School")]
 [assembly: AssemblyProduct("AtteNTCS Staff Client")]
