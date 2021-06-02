@@ -65,7 +65,7 @@ namespace NTCSAttendanceStaffClient
             }
             catch (SqlException ex)
             {
-                SqlError.ShowRuntimeConnectionErrorMessage(ex.Message);
+                SqlErrorDialog.ShowRuntimeConnectionErrorMessage(ex.Message);
             }
         }
 
@@ -83,6 +83,7 @@ namespace NTCSAttendanceStaffClient
         private void SearchButton_Click(object sender, EventArgs e)
         {
             SearchActive = true;
+            SearchActiveLabel.Show();
             SearchString = SearchBox.Text;
             this.LoadData();
         }
@@ -90,6 +91,7 @@ namespace NTCSAttendanceStaffClient
         private void ClearSearchButton_Click(object sender, EventArgs e)
         {
             SearchActive = false;
+            SearchActiveLabel.Hide();
             SearchString = "";
             SearchBox.Text = "";
             this.LoadData();

@@ -2,7 +2,7 @@
 
 namespace NTCSAttendanceStaffClient
 {
-    public static class SqlError
+    public static class SqlErrorDialog
     {
         public static void ShowRuntimeConnectionErrorMessage()
         {

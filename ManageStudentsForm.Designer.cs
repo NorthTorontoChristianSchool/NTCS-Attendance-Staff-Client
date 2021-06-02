@@ -37,6 +37,7 @@ namespace NTCSAttendanceStaffClient
             this.NewStudentButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ClearSearchButton = new System.Windows.Forms.Button();
+            this.SearchActiveLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +129,22 @@ namespace NTCSAttendanceStaffClient
             this.ClearSearchButton.UseVisualStyleBackColor = true;
             this.ClearSearchButton.Click += new System.EventHandler(this.ClearSearchButton_Click);
             // 
+            // SearchActiveLabel
+            // 
+            this.SearchActiveLabel.AutoSize = true;
+            this.SearchActiveLabel.Location = new System.Drawing.Point(397, 19);
+            this.SearchActiveLabel.Name = "SearchActiveLabel";
+            this.SearchActiveLabel.Size = new System.Drawing.Size(95, 17);
+            this.SearchActiveLabel.TabIndex = 8;
+            this.SearchActiveLabel.Text = "Search Active";
+            this.SearchActiveLabel.Visible = false;
+            // 
             // ManageStudentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.SearchActiveLabel);
             this.Controls.Add(this.ClearSearchButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.NewStudentButton);
@@ -162,5 +174,6 @@ namespace NTCSAttendanceStaffClient
         private System.Windows.Forms.Button NewStudentButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button ClearSearchButton;
+        private System.Windows.Forms.Label SearchActiveLabel;
     }
 }
