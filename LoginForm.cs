@@ -68,7 +68,7 @@ namespace NTCSAttendanceStaffClient
                 ["Server"] = ServerBox.Text,
                 ["Database"] = "studentmanagement",  // hard coded name of database
                 ["Trusted_Connection"] = "false",    // Won't support Windows Authentication at this time
-                ["Connection Timeout"] = 3
+                ["Connection Timeout"] = 5
             };
             SqlConnectionInfo.ConnectionString = builder.ToString();
 

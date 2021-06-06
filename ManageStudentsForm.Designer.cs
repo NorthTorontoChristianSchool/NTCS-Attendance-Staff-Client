@@ -35,7 +35,7 @@ namespace NTCSAttendanceStaffClient
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.NewStudentButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DeleteSelectedButton = new System.Windows.Forms.Button();
             this.ClearSearchButton = new System.Windows.Forms.Button();
             this.SearchActiveLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
@@ -51,21 +51,25 @@ namespace NTCSAttendanceStaffClient
             this.StudentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.StudentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StudentDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.StudentDataGridView.Location = new System.Drawing.Point(12, 90);
+            this.StudentDataGridView.Location = new System.Drawing.Point(9, 73);
+            this.StudentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.StudentDataGridView.Name = "StudentDataGridView";
             this.StudentDataGridView.RowHeadersWidth = 51;
             this.StudentDataGridView.RowTemplate.Height = 24;
             this.StudentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentDataGridView.Size = new System.Drawing.Size(982, 619);
+            this.StudentDataGridView.Size = new System.Drawing.Size(736, 503);
             this.StudentDataGridView.TabIndex = 7;
+            this.StudentDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDataGridView_CellDoubleClick);
+            this.StudentDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StudentDataGridView_KeyDown);
             // 
             // RefreshButton
             // 
-            this.RefreshButton.Location = new System.Drawing.Point(12, 48);
+            this.RefreshButton.Location = new System.Drawing.Point(9, 39);
+            this.RefreshButton.Margin = new System.Windows.Forms.Padding(2);
             this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(81, 30);
+            this.RefreshButton.Size = new System.Drawing.Size(81, 24);
             this.RefreshButton.TabIndex = 3;
-            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.Text = "Refresh [F5]";
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
@@ -73,9 +77,10 @@ namespace NTCSAttendanceStaffClient
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(771, 12);
+            this.CloseButton.Location = new System.Drawing.Point(578, 10);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(223, 30);
+            this.CloseButton.Size = new System.Drawing.Size(167, 24);
             this.CloseButton.TabIndex = 6;
             this.CloseButton.Text = "Close and Return to Main Menu";
             this.CloseButton.UseVisualStyleBackColor = true;
@@ -84,16 +89,19 @@ namespace NTCSAttendanceStaffClient
             // SearchBox
             // 
             this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBox.Location = new System.Drawing.Point(12, 13);
+            this.SearchBox.Location = new System.Drawing.Point(9, 11);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(185, 27);
+            this.SearchBox.Size = new System.Drawing.Size(140, 23);
             this.SearchBox.TabIndex = 0;
+            this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(203, 12);
+            this.SearchButton.Location = new System.Drawing.Point(152, 10);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 30);
+            this.SearchButton.Size = new System.Drawing.Size(56, 24);
             this.SearchButton.TabIndex = 1;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -102,28 +110,33 @@ namespace NTCSAttendanceStaffClient
             // NewStudentButton
             // 
             this.NewStudentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewStudentButton.Location = new System.Drawing.Point(634, 48);
+            this.NewStudentButton.Location = new System.Drawing.Point(434, 39);
+            this.NewStudentButton.Margin = new System.Windows.Forms.Padding(2);
             this.NewStudentButton.Name = "NewStudentButton";
-            this.NewStudentButton.Size = new System.Drawing.Size(131, 30);
+            this.NewStudentButton.Size = new System.Drawing.Size(140, 24);
             this.NewStudentButton.TabIndex = 4;
-            this.NewStudentButton.Text = "New Student...";
+            this.NewStudentButton.Text = "New Student... [Ctrl+N]";
             this.NewStudentButton.UseVisualStyleBackColor = true;
+            this.NewStudentButton.Click += new System.EventHandler(this.NewStudentButton_Click);
             // 
-            // button2
+            // DeleteSelectedButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(771, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(223, 30);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Delete Selected Students [Del]";
-            this.button2.UseVisualStyleBackColor = true;
+            this.DeleteSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteSelectedButton.Location = new System.Drawing.Point(578, 39);
+            this.DeleteSelectedButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteSelectedButton.Name = "DeleteSelectedButton";
+            this.DeleteSelectedButton.Size = new System.Drawing.Size(167, 24);
+            this.DeleteSelectedButton.TabIndex = 5;
+            this.DeleteSelectedButton.Text = "Delete Selected Students [Del]";
+            this.DeleteSelectedButton.UseVisualStyleBackColor = true;
+            this.DeleteSelectedButton.Click += new System.EventHandler(this.DeleteSelectedButton_Click);
             // 
             // ClearSearchButton
             // 
-            this.ClearSearchButton.Location = new System.Drawing.Point(284, 12);
+            this.ClearSearchButton.Location = new System.Drawing.Point(213, 10);
+            this.ClearSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.ClearSearchButton.Name = "ClearSearchButton";
-            this.ClearSearchButton.Size = new System.Drawing.Size(107, 30);
+            this.ClearSearchButton.Size = new System.Drawing.Size(80, 24);
             this.ClearSearchButton.TabIndex = 2;
             this.ClearSearchButton.Text = "Clear Search";
             this.ClearSearchButton.UseVisualStyleBackColor = true;
@@ -132,21 +145,22 @@ namespace NTCSAttendanceStaffClient
             // SearchActiveLabel
             // 
             this.SearchActiveLabel.AutoSize = true;
-            this.SearchActiveLabel.Location = new System.Drawing.Point(397, 19);
+            this.SearchActiveLabel.Location = new System.Drawing.Point(298, 15);
+            this.SearchActiveLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SearchActiveLabel.Name = "SearchActiveLabel";
-            this.SearchActiveLabel.Size = new System.Drawing.Size(95, 17);
+            this.SearchActiveLabel.Size = new System.Drawing.Size(74, 13);
             this.SearchActiveLabel.TabIndex = 8;
             this.SearchActiveLabel.Text = "Search Active";
             this.SearchActiveLabel.Visible = false;
             // 
             // ManageStudentsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.ClientSize = new System.Drawing.Size(754, 586);
             this.Controls.Add(this.SearchActiveLabel);
             this.Controls.Add(this.ClearSearchButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.DeleteSelectedButton);
             this.Controls.Add(this.NewStudentButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchBox);
@@ -154,10 +168,13 @@ namespace NTCSAttendanceStaffClient
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.StudentDataGridView);
             this.Icon = global::NTCSAttendanceStaffClient.Properties.Resources.NTCSIcon;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageStudentsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Students";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageStudentsForm_FormClosing);
             this.Load += new System.EventHandler(this.ManageStudentsForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManageStudentsForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,7 +189,7 @@ namespace NTCSAttendanceStaffClient
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button NewStudentButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DeleteSelectedButton;
         private System.Windows.Forms.Button ClearSearchButton;
         private System.Windows.Forms.Label SearchActiveLabel;
     }

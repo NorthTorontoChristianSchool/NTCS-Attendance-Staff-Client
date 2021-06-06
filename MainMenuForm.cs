@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NTCSAttendanceStaffClient
 {
     public partial class MainMenuForm : Form
     {
+        public ManageStudentsForm ManageStudents = new ManageStudentsForm();
+
         public MainMenuForm()
         {
             InitializeComponent();
@@ -26,15 +21,25 @@ namespace NTCSAttendanceStaffClient
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Are you sure you want to close all AtteNTCS windows and exit AtteNTCS?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void ManageStudentsButton_Click(object sender, EventArgs e)
         {
-            ManageStudentsForm manageStudents = new ManageStudentsForm();
-            this.Hide();
-            manageStudents.ShowDialog();
-            this.Show();
+            openManageStudents:
+            try
+            {
+                ManageStudents.Show();
+                ManageStudents.Focus();
+            }
+            catch (ObjectDisposedException)
+            {
+                ManageStudents = new ManageStudentsForm();
+                goto openManageStudents;
+            }
         }
 
         private void ManageFamiliesButton_Click(object sender, EventArgs e)
@@ -50,6 +55,15 @@ namespace NTCSAttendanceStaffClient
         private void KioskMessagesButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                ExitButton.PerformClick();
+            }
         }
     }
 }

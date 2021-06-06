@@ -6,6 +6,7 @@ namespace NTCSAttendanceStaffClient
 {
     static class Program
     {
+        public static MainMenuForm MainMenu;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,7 @@ namespace NTCSAttendanceStaffClient
             Application.SetCompatibleTextRenderingDefault(false);
 
             // make a mutex and detect if another instance of the program is running
-            Mutex mutex = new Mutex(true, "UniqueAppId", out bool mutexResult);
+            Mutex mutex = new Mutex(true, "AtteNTCSMutex", out bool mutexResult);
 
             if (!mutexResult)
             {
@@ -31,10 +32,11 @@ namespace NTCSAttendanceStaffClient
             // Prevent the mutex from being released by the GC
             GC.KeepAlive(mutex);
 
-            // After the user has logged in successfully, rum the main menu
+            // After the user has logged in successfully, run the main menu
             if (login.LoginSuccess)
             {
-                Application.Run(new MainMenuForm());
+                MainMenu = new MainMenuForm();
+                Application.Run(MainMenu);
             }
         }
     }
