@@ -10,7 +10,6 @@ namespace NTCSAttendanceStaffClient
         public MainMenuForm()
         {
             InitializeComponent();
-            GC.Collect();
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
@@ -29,17 +28,8 @@ namespace NTCSAttendanceStaffClient
 
         private void ManageStudentsButton_Click(object sender, EventArgs e)
         {
-            openManageStudents:
-            try
-            {
-                ManageStudents.Show();
-                ManageStudents.Focus();
-            }
-            catch (ObjectDisposedException)
-            {
-                ManageStudents = new ManageStudentsForm();
-                goto openManageStudents;
-            }
+            ManageStudents.Show();
+            ManageStudents.Focus();
         }
 
         private void ManageFamiliesButton_Click(object sender, EventArgs e)

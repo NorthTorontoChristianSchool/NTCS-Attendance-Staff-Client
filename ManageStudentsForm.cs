@@ -4,7 +4,6 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Reflection;
 
 namespace NTCSAttendanceStaffClient
 {
@@ -21,7 +20,7 @@ namespace NTCSAttendanceStaffClient
 
         private void LoadData()
         {
-            List<string> selectedStudentIDs = new List<string>();
+            HashSet<string> selectedStudentIDs = new HashSet<string>();
             // Remember which row was selected if refreshing
             if (FirstTimeLoaded)
             {
@@ -171,6 +170,7 @@ namespace NTCSAttendanceStaffClient
 
         private void DeleteSelectedButton_Click(object sender, EventArgs e)
         {
+            // Loop through the selected names to gather a list of names that will be deleted
             if (StudentDataGridView.SelectedRows.Count == 0)
                 return;
             StringBuilder userListOfNamesToDelete = new StringBuilder();
@@ -183,6 +183,8 @@ namespace NTCSAttendanceStaffClient
                 userListOfNamesToDelete.Append(row.Cells["Last Name"].Value);
                 userListOfNamesToDelete.Append("\r\n");
             }
+
+            // Ask the user if they are sure that they want to delete the selected rows
             DialogResult result = MessageBox.Show("Are you sure you want to delete the following students?\r\n\r\n" + userListOfNamesToDelete.ToString() + "\r\nThis action cannot be undone!", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
@@ -198,6 +200,7 @@ namespace NTCSAttendanceStaffClient
                         SqlErrorDialog.ShowRuntimeConnectionErrorMessage(se.Message);
                     }
 
+                    // Loop through the selected rows and delete each one
                     foreach (DataGridViewRow row in StudentDataGridView.SelectedRows)
                     {
                         using (SqlCommand deleteCommand = new SqlCommand())
@@ -224,11 +227,12 @@ namespace NTCSAttendanceStaffClient
             RefreshButton.PerformClick();
         }
 
+        // Hide, don't actually close
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Program.MainMenu.WindowState = FormWindowState.Normal;
             Program.MainMenu.Focus();
+            this.Hide();
         }
 
         // Keyboard shortcuts
@@ -252,7 +256,6 @@ namespace NTCSAttendanceStaffClient
             }
         }
 
-        // Hide, don't actually close
         private void ManageStudentsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)

@@ -38,6 +38,7 @@ namespace NTCSAttendanceStaffClient
             this.DeleteSelectedButton = new System.Windows.Forms.Button();
             this.ClearSearchButton = new System.Windows.Forms.Button();
             this.SearchActiveLabel = new System.Windows.Forms.Label();
+            this.TitleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,20 +52,20 @@ namespace NTCSAttendanceStaffClient
             this.StudentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.StudentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StudentDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.StudentDataGridView.Location = new System.Drawing.Point(9, 73);
+            this.StudentDataGridView.Location = new System.Drawing.Point(9, 104);
             this.StudentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.StudentDataGridView.Name = "StudentDataGridView";
             this.StudentDataGridView.RowHeadersWidth = 51;
             this.StudentDataGridView.RowTemplate.Height = 24;
             this.StudentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentDataGridView.Size = new System.Drawing.Size(736, 503);
+            this.StudentDataGridView.Size = new System.Drawing.Size(734, 472);
             this.StudentDataGridView.TabIndex = 7;
             this.StudentDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDataGridView_CellDoubleClick);
             this.StudentDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StudentDataGridView_KeyDown);
             // 
             // RefreshButton
             // 
-            this.RefreshButton.Location = new System.Drawing.Point(9, 39);
+            this.RefreshButton.Location = new System.Drawing.Point(11, 70);
             this.RefreshButton.Margin = new System.Windows.Forms.Padding(2);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(81, 24);
@@ -77,7 +78,7 @@ namespace NTCSAttendanceStaffClient
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(578, 10);
+            this.CloseButton.Location = new System.Drawing.Point(576, 11);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(167, 24);
@@ -89,7 +90,7 @@ namespace NTCSAttendanceStaffClient
             // SearchBox
             // 
             this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBox.Location = new System.Drawing.Point(9, 11);
+            this.SearchBox.Location = new System.Drawing.Point(11, 42);
             this.SearchBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(140, 23);
@@ -98,7 +99,7 @@ namespace NTCSAttendanceStaffClient
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(152, 10);
+            this.SearchButton.Location = new System.Drawing.Point(155, 42);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(56, 24);
@@ -110,7 +111,7 @@ namespace NTCSAttendanceStaffClient
             // NewStudentButton
             // 
             this.NewStudentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewStudentButton.Location = new System.Drawing.Point(434, 39);
+            this.NewStudentButton.Location = new System.Drawing.Point(434, 70);
             this.NewStudentButton.Margin = new System.Windows.Forms.Padding(2);
             this.NewStudentButton.Name = "NewStudentButton";
             this.NewStudentButton.Size = new System.Drawing.Size(140, 24);
@@ -122,7 +123,7 @@ namespace NTCSAttendanceStaffClient
             // DeleteSelectedButton
             // 
             this.DeleteSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteSelectedButton.Location = new System.Drawing.Point(578, 39);
+            this.DeleteSelectedButton.Location = new System.Drawing.Point(576, 70);
             this.DeleteSelectedButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteSelectedButton.Name = "DeleteSelectedButton";
             this.DeleteSelectedButton.Size = new System.Drawing.Size(167, 24);
@@ -133,7 +134,7 @@ namespace NTCSAttendanceStaffClient
             // 
             // ClearSearchButton
             // 
-            this.ClearSearchButton.Location = new System.Drawing.Point(213, 10);
+            this.ClearSearchButton.Location = new System.Drawing.Point(215, 42);
             this.ClearSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.ClearSearchButton.Name = "ClearSearchButton";
             this.ClearSearchButton.Size = new System.Drawing.Size(80, 24);
@@ -145,7 +146,7 @@ namespace NTCSAttendanceStaffClient
             // SearchActiveLabel
             // 
             this.SearchActiveLabel.AutoSize = true;
-            this.SearchActiveLabel.Location = new System.Drawing.Point(298, 15);
+            this.SearchActiveLabel.Location = new System.Drawing.Point(299, 48);
             this.SearchActiveLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SearchActiveLabel.Name = "SearchActiveLabel";
             this.SearchActiveLabel.Size = new System.Drawing.Size(74, 13);
@@ -153,11 +154,23 @@ namespace NTCSAttendanceStaffClient
             this.SearchActiveLabel.Text = "Search Active";
             this.SearchActiveLabel.Visible = false;
             // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Location = new System.Drawing.Point(11, 9);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(172, 24);
+            this.TitleLabel.TabIndex = 9;
+            this.TitleLabel.Text = "Manage Students";
+            // 
             // ManageStudentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 586);
+            this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.SearchActiveLabel);
             this.Controls.Add(this.ClearSearchButton);
             this.Controls.Add(this.DeleteSelectedButton);
@@ -192,5 +205,6 @@ namespace NTCSAttendanceStaffClient
         private System.Windows.Forms.Button DeleteSelectedButton;
         private System.Windows.Forms.Button ClearSearchButton;
         private System.Windows.Forms.Label SearchActiveLabel;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }

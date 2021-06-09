@@ -85,6 +85,7 @@ namespace NTCSAttendanceStaffClient
                         {
                             conn.Open();
                             updateCommand.ExecuteNonQuery();
+                            conn.Close();
                             this.Close();
                             return;
                         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Security;
 
 namespace NTCSAttendanceStaffClient
@@ -46,6 +47,12 @@ namespace NTCSAttendanceStaffClient
         // Login button action
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            // Grey out the boxes and make it look busy
+            ServerBox.BackColor = SystemColors.Control;
+            UsernameBox.BackColor = SystemColors.Control;
+            PasswordBox.BackColor = SystemColors.Control;
+            this.UseWaitCursor = true;
+
             // Remember or forget the login info based on the user's choice
             if (RememberCheckBox.Checked)
             {
@@ -98,15 +105,17 @@ namespace NTCSAttendanceStaffClient
                 catch (Exception ex)
                 {
                     MessageBox.Show("Login failed. The following error occured:\r\n" + ex.Message, "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    this.UseWaitCursor = false;
+                    ServerBox.BackColor = SystemColors.Window;
+                    UsernameBox.BackColor = SystemColors.Window;
+                    PasswordBox.BackColor = SystemColors.Window;
                 }
             }
 
             if (success)
             {
                 LoginSuccess = true;
-                // hopefully the password is gone (it probably isn't but whatever)
-                PasswordBox.Dispose();
-                GC.Collect();
                 Close();
             }
         }
