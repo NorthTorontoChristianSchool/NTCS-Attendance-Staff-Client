@@ -47,6 +47,7 @@ namespace NTCSAttendanceStaffClient
 
         }
 
+        // Click the exit button when closing so that the confirmation dialog pops up
         private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
