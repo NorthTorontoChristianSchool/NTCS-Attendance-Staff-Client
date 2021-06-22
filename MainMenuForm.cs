@@ -20,6 +20,7 @@ namespace NTCSAttendanceStaffClient
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            // Show a confirmation before exiting
             if (MessageBox.Show("Are you sure you want to close all AtteNTCS windows and exit AtteNTCS?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
