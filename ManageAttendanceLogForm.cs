@@ -32,7 +32,7 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "SELECT AttendanceLog.LogTime, AttendanceLog.StudentID, Students.FirstName, Students.LastName, AttendanceLog.ScanLocation, AttendanceLog.ScanType FROM AttendanceLog, Students WHERE AttendanceLog.StudentID = Students.StudentID ORDER BY LogTime DESC";
+                            sqlCmd.CommandText = "SELECT AttendanceLog.LogTime AS 'Log Time', AttendanceLog.StudentID AS 'Student ID', Students.LastName AS 'Last Name', Students.FirstName AS 'First Name', AttendanceLog.ScanLocation AS 'Scan Location', AttendanceLog.ScanType AS 'Scan Type Int', (SELECT CASE AttendanceLog.ScanType WHEN 0 THEN 'Sign In' WHEN 1 THEN 'Sign Out' WHEN 3 THEN 'Excused Absence' ELSE AttendanceLog.ScanType END FROM AttendanceLog) FROM AttendanceLog, Students WHERE AttendanceLog.StudentID = Students.StudentID ORDER BY LogTime DESC";
                             sqlCmd.Parameters.AddWithValue("@Search", "%" + SearchString + "%");
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
@@ -48,7 +48,7 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "SELECT AttendanceLog.LogTime, AttendanceLog.StudentID, Students.FirstName, Students.LastName, AttendanceLog.ScanLocation, AttendanceLog.ScanType FROM AttendanceLog, Students WHERE AttendanceLog.StudentID = Students.StudentID ORDER BY LogTime DESC";
+                            sqlCmd.CommandText = "SELECT AttendanceLog.LogTime AS 'Log Time', AttendanceLog.StudentID AS 'Student ID', Students.LastName AS 'Last Name', Students.FirstName AS 'First Name', AttendanceLog.ScanLocation AS 'Scan Location', AttendanceLog.ScanType AS 'Scan Type Int', (SELECT ELT(ScanType + 1, 'Sign In', 'Sign Out', 'Excused Absence') FROM AttendanceLog) FROM AttendanceLog, Students WHERE AttendanceLog.StudentID = Students.StudentID ORDER BY LogTime DESC";
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
                             DataTable dtRecord = new DataTable();
