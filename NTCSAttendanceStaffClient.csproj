@@ -74,6 +74,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttendanceLogEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceLogEditorForm.Designer.cs">
+      <DependentUpon>AttendanceLogEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlDoubleBuffering.cs" />
     <Compile Include="FamilyEditorForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +104,12 @@
     </Compile>
     <Compile Include="ManageFamiliesForm.Designer.cs">
       <DependentUpon>ManageFamiliesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageKioskMessagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageKioskMessagesForm.Designer.cs">
+      <DependentUpon>ManageKioskMessagesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageStudentsForm.cs">
       <SubType>Form</SubType>
@@ -125,6 +137,9 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceLogEditorForm.resx">
+      <DependentUpon>AttendanceLogEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FamilyEditorForm.resx">
       <DependentUpon>FamilyEditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageFamiliesForm.resx">
       <DependentUpon>ManageFamiliesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageKioskMessagesForm.resx">
+      <DependentUpon>ManageKioskMessagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageStudentsForm.resx">
       <DependentUpon>ManageStudentsForm.cs</DependentUpon>
