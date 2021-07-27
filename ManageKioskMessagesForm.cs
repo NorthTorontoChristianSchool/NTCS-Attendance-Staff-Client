@@ -19,13 +19,13 @@ namespace NTCSAttendanceStaffClient
 
         private void LoadData()
         {
-            HashSet<string> selectedStudentIDs = new HashSet<string>();
+            HashSet<string> selectedKioskMessages = new HashSet<string>();
             // Remember which row was selected if refreshing
             if (FirstTimeLoaded)
             {
-                foreach (DataGridViewRow row in StudentDataGridView.SelectedRows)
+                foreach (DataGridViewRow row in MessageDataGridView.SelectedRows)
                 {
-                    selectedStudentIDs.Add(row.Cells["Student ID"].ToString());
+                    selectedKioskMessages.Add(row.Cells["Display Message"].ToString());
                 }
             }
 
@@ -43,13 +43,13 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "";
+                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages WHERE DisplayOrder LIKE @Search OR DisplayMessage LIKE @Search";
                             sqlCmd.Parameters.AddWithValue("@Search", "%" + SearchString + "%");
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
                             DataTable dtRecord = new DataTable();
                             sqlDataAdap.Fill(dtRecord);
-                            StudentDataGridView.DataSource = dtRecord;
+                            MessageDataGridView.DataSource = dtRecord;
                         }
                     }
                     // default to selecting everything
@@ -59,12 +59,12 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "SELECT StudentID AS 'Student ID', FamilyID AS 'Family ID', LastName AS 'Last Name', FirstName AS 'First Name', Homeroom, StudentEmail AS 'Student Email', KioskPersonalMessage AS 'Kiosk Personal Message', KioskMessageStartDate AS 'Kiosk Message Start Date', KioskMessageExpiryDate AS 'Kiosk Message Expiry Date' FROM Students ORDER BY LastName";
+                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages";
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
                             DataTable dtRecord = new DataTable();
                             sqlDataAdap.Fill(dtRecord);
-                            StudentDataGridView.DataSource = dtRecord;
+                            MessageDataGridView.DataSource = dtRecord;
                         }
                     }
                 }
@@ -77,17 +77,17 @@ namespace NTCSAttendanceStaffClient
 
             // Re-select the previously selected rows
             bool firstRowSelected = false;
-            StudentDataGridView.ClearSelection();
+            MessageDataGridView.ClearSelection();
             if (FirstTimeLoaded)
             {
-                foreach (DataGridViewRow row in StudentDataGridView.Rows)
+                foreach (DataGridViewRow row in MessageDataGridView.Rows)
                 {
-                    if (selectedStudentIDs.Contains(row.Cells["Student ID"].ToString()))
+                    if (selectedKioskMessages.Contains(row.Cells["Display Message"].ToString()))
                     {
                         row.Selected = true;
                         if (!firstRowSelected)
                         {
-                            StudentDataGridView.CurrentCell = row.Cells[0];
+                            MessageDataGridView.CurrentCell = row.Cells[0];
                             firstRowSelected = true;
                         }
                     }
@@ -99,7 +99,7 @@ namespace NTCSAttendanceStaffClient
         private void ManageStudentsForm_Load(object sender, EventArgs e)
         {
             // Enable double buffering to reduce the lag when scrolling the DataGridView
-            ControlDoubleBuffering.SetDoubleBuffered(StudentDataGridView);
+            ControlDoubleBuffering.SetDoubleBuffered(MessageDataGridView);
 
             // Load the data
             this.LoadData();
@@ -146,7 +146,7 @@ namespace NTCSAttendanceStaffClient
         // Edit a student when the row in the DataGridView is double-clicked
         private void EditSelectedRow()
         {
-            StudentEditorForm sef = new StudentEditorForm(StudentDataGridView.SelectedRows[0].Cells["Student ID"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["Family ID"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["Last Name"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["First Name"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["Homeroom"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["Student Email"].Value.ToString(), StudentDataGridView.SelectedRows[0].Cells["Kiosk Personal Message"].Value.ToString(), DateTime.Parse(StudentDataGridView.SelectedRows[0].Cells["Kiosk Message Start Date"].Value.ToString()), DateTime.Parse(StudentDataGridView.SelectedRows[0].Cells["Kiosk Message Expiry Date"].Value.ToString()));
+            StudentEditorForm sef = new StudentEditorForm(MessageDataGridView.SelectedRows[0].Cells["Student ID"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Family ID"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Last Name"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["First Name"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Homeroom"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Student Email"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Kiosk Personal Message"].Value.ToString(), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Kiosk Message Start Date"].Value.ToString()), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Kiosk Message Expiry Date"].Value.ToString()));
             sef.ShowDialog();
             RefreshButton.PerformClick();
         }
@@ -186,14 +186,17 @@ namespace NTCSAttendanceStaffClient
                     }
 
                     // Loop through the selected rows and delete each one
-                    foreach (DataGridViewRow row in StudentDataGridView.SelectedRows)
+                    foreach (DataGridViewRow row in MessageDataGridView.SelectedRows)
                     {
                         using (SqlCommand deleteCommand = new SqlCommand())
                         {
                             deleteCommand.Connection = conn;
                             deleteCommand.CommandType = CommandType.Text;
-                            deleteCommand.CommandText = "DELETE FROM Students WHERE StudentID = @DeletingStudentID";
-                            deleteCommand.Parameters.AddWithValue("@DeletingStudentID", row.Cells["Student ID"].Value);
+                            deleteCommand.CommandText = "DELETE TOP(1) FROM KioskPublicMessages WHERE DisplayOrder = @DeletingDisplayOrder AND DisplayMessage = @DeletingDisplayMessage AND StartDate = @DeletingStartDate AND ExpiryDate = @DeletingExpiryDate";
+                            deleteCommand.Parameters.AddWithValue("@DeletingDisplayOrder", row.Cells["Display Order"].Value);
+                            deleteCommand.Parameters.AddWithValue("@DeletingDisplayMessage", row.Cells["Display Message"].Value);
+                            deleteCommand.Parameters.AddWithValue("@DeletingStartDate", row.Cells["Start Date"].Value);
+                            deleteCommand.Parameters.AddWithValue("@DeletingExpiryDate", row.Cells["Expiry Date"].Value);
 
                             try
                             {
@@ -201,7 +204,7 @@ namespace NTCSAttendanceStaffClient
                             }
                             catch (SqlException se)
                             {
-                                MessageBox.Show("An error occured when deleting the student from the database. The following error occured:\r\n" + se.Message, "Error Deleting Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("An error occured when deleting the kiosk message from the database. The following error occured:\r\n" + se.Message, "Error Deleting Kiosk Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                         }

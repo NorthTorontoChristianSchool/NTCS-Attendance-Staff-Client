@@ -29,7 +29,7 @@ namespace NTCSAttendanceStaffClient
         /// </summary>
         private void InitializeComponent()
         {
-            this.StudentDataGridView = new System.Windows.Forms.DataGridView();
+            this.MessageDataGridView = new System.Windows.Forms.DataGridView();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
@@ -39,29 +39,29 @@ namespace NTCSAttendanceStaffClient
             this.ClearSearchButton = new System.Windows.Forms.Button();
             this.SearchActiveLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MessageDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // StudentDataGridView
+            // MessageDataGridView
             // 
-            this.StudentDataGridView.AllowUserToAddRows = false;
-            this.StudentDataGridView.AllowUserToDeleteRows = false;
-            this.StudentDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MessageDataGridView.AllowUserToAddRows = false;
+            this.MessageDataGridView.AllowUserToDeleteRows = false;
+            this.MessageDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.StudentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.StudentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StudentDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.StudentDataGridView.Location = new System.Drawing.Point(12, 128);
-            this.StudentDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.StudentDataGridView.Name = "StudentDataGridView";
-            this.StudentDataGridView.RowHeadersWidth = 51;
-            this.StudentDataGridView.RowTemplate.Height = 24;
-            this.StudentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentDataGridView.Size = new System.Drawing.Size(979, 581);
-            this.StudentDataGridView.TabIndex = 7;
-            this.StudentDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDataGridView_CellDoubleClick);
-            this.StudentDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StudentDataGridView_KeyDown);
+            this.MessageDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.MessageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MessageDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.MessageDataGridView.Location = new System.Drawing.Point(12, 128);
+            this.MessageDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MessageDataGridView.Name = "MessageDataGridView";
+            this.MessageDataGridView.RowHeadersWidth = 51;
+            this.MessageDataGridView.RowTemplate.Height = 24;
+            this.MessageDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MessageDataGridView.Size = new System.Drawing.Size(979, 581);
+            this.MessageDataGridView.TabIndex = 7;
+            this.MessageDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDataGridView_CellDoubleClick);
+            this.MessageDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StudentDataGridView_KeyDown);
             // 
             // RefreshButton
             // 
@@ -177,7 +177,7 @@ namespace NTCSAttendanceStaffClient
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.RefreshButton);
-            this.Controls.Add(this.StudentDataGridView);
+            this.Controls.Add(this.MessageDataGridView);
             this.Icon = global::NTCSAttendanceStaffClient.Properties.Resources.NTCSIcon;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -186,7 +186,7 @@ namespace NTCSAttendanceStaffClient
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageStudentsForm_FormClosing);
             this.Load += new System.EventHandler(this.ManageStudentsForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManageStudentsForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MessageDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,7 +194,7 @@ namespace NTCSAttendanceStaffClient
 
         #endregion
 
-        private System.Windows.Forms.DataGridView StudentDataGridView;
+        private System.Windows.Forms.DataGridView MessageDataGridView;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.TextBox SearchBox;

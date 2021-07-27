@@ -34,10 +34,10 @@ namespace NTCSAttendanceStaffClient
             this.ManageFamiliesButton = new System.Windows.Forms.Button();
             this.AttendanceLogButton = new System.Windows.Forms.Button();
             this.KioskMessagesButton = new System.Windows.Forms.Button();
+            this.SendEmailsButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.AboutButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.SendEmailsButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,18 @@ namespace NTCSAttendanceStaffClient
             this.KioskMessagesButton.UseVisualStyleBackColor = true;
             this.KioskMessagesButton.Click += new System.EventHandler(this.KioskMessagesButton_Click);
             // 
+            // SendEmailsButton
+            // 
+            this.SendEmailsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendEmailsButton.Location = new System.Drawing.Point(3, 366);
+            this.SendEmailsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SendEmailsButton.Name = "SendEmailsButton";
+            this.SendEmailsButton.Size = new System.Drawing.Size(389, 87);
+            this.SendEmailsButton.TabIndex = 4;
+            this.SendEmailsButton.Text = "Send Emails to Parents of Absent Students";
+            this.SendEmailsButton.UseVisualStyleBackColor = true;
+            this.SendEmailsButton.Click += new System.EventHandler(this.SendEmailsButton_Click);
+            // 
             // TitleLabel
             // 
             this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -141,17 +153,6 @@ namespace NTCSAttendanceStaffClient
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // SendEmailsButton
-            // 
-            this.SendEmailsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendEmailsButton.Location = new System.Drawing.Point(3, 366);
-            this.SendEmailsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SendEmailsButton.Name = "SendEmailsButton";
-            this.SendEmailsButton.Size = new System.Drawing.Size(389, 87);
-            this.SendEmailsButton.TabIndex = 4;
-            this.SendEmailsButton.Text = "Send Emails to Parents of Absent Students";
-            this.SendEmailsButton.UseVisualStyleBackColor = true;
             // 
             // MainMenuForm
             // 

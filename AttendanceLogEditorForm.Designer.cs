@@ -60,7 +60,7 @@ namespace NTCSAttendanceStaffClient
             this.LogTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LogTimePicker.Name = "LogTimePicker";
             this.LogTimePicker.Size = new System.Drawing.Size(217, 22);
-            this.LogTimePicker.TabIndex = 17;
+            this.LogTimePicker.TabIndex = 2;
             // 
             // StudentIDLabel
             // 
@@ -68,7 +68,7 @@ namespace NTCSAttendanceStaffClient
             this.StudentIDLabel.Location = new System.Drawing.Point(39, 91);
             this.StudentIDLabel.Name = "StudentIDLabel";
             this.StudentIDLabel.Size = new System.Drawing.Size(74, 17);
-            this.StudentIDLabel.TabIndex = 1;
+            this.StudentIDLabel.TabIndex = 3;
             this.StudentIDLabel.Text = "Student ID";
             // 
             // StudentIDTextBox
@@ -78,7 +78,7 @@ namespace NTCSAttendanceStaffClient
             this.StudentIDTextBox.MaxLength = 900;
             this.StudentIDTextBox.Name = "StudentIDTextBox";
             this.StudentIDTextBox.Size = new System.Drawing.Size(217, 22);
-            this.StudentIDTextBox.TabIndex = 2;
+            this.StudentIDTextBox.TabIndex = 4;
             // 
             // CancelFormButton
             // 
@@ -88,7 +88,7 @@ namespace NTCSAttendanceStaffClient
             this.CancelFormButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelFormButton.Name = "CancelFormButton";
             this.CancelFormButton.Size = new System.Drawing.Size(112, 30);
-            this.CancelFormButton.TabIndex = 20;
+            this.CancelFormButton.TabIndex = 9;
             this.CancelFormButton.Text = "Cancel [Esc]";
             this.CancelFormButton.UseVisualStyleBackColor = false;
             this.CancelFormButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -100,7 +100,7 @@ namespace NTCSAttendanceStaffClient
             this.ScanLocationTextBox.MaxLength = 4000;
             this.ScanLocationTextBox.Name = "ScanLocationTextBox";
             this.ScanLocationTextBox.Size = new System.Drawing.Size(217, 22);
-            this.ScanLocationTextBox.TabIndex = 4;
+            this.ScanLocationTextBox.TabIndex = 6;
             // 
             // ScanLocationLabel
             // 
@@ -108,7 +108,7 @@ namespace NTCSAttendanceStaffClient
             this.ScanLocationLabel.Location = new System.Drawing.Point(15, 124);
             this.ScanLocationLabel.Name = "ScanLocationLabel";
             this.ScanLocationLabel.Size = new System.Drawing.Size(98, 17);
-            this.ScanLocationLabel.TabIndex = 3;
+            this.ScanLocationLabel.TabIndex = 5;
             this.ScanLocationLabel.Text = "Scan Location";
             // 
             // SaveButton
@@ -118,7 +118,7 @@ namespace NTCSAttendanceStaffClient
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(105, 30);
-            this.SaveButton.TabIndex = 21;
+            this.SaveButton.TabIndex = 10;
             this.SaveButton.Text = "Save [Ctrl+S]";
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
@@ -134,7 +134,7 @@ namespace NTCSAttendanceStaffClient
             this.ScanTypeComboBox.Location = new System.Drawing.Point(119, 156);
             this.ScanTypeComboBox.Name = "ScanTypeComboBox";
             this.ScanTypeComboBox.Size = new System.Drawing.Size(217, 24);
-            this.ScanTypeComboBox.TabIndex = 22;
+            this.ScanTypeComboBox.TabIndex = 8;
             // 
             // ScanTypeLabel
             // 
@@ -142,7 +142,7 @@ namespace NTCSAttendanceStaffClient
             this.ScanTypeLabel.Location = new System.Drawing.Point(37, 159);
             this.ScanTypeLabel.Name = "ScanTypeLabel";
             this.ScanTypeLabel.Size = new System.Drawing.Size(76, 17);
-            this.ScanTypeLabel.TabIndex = 23;
+            this.ScanTypeLabel.TabIndex = 7;
             this.ScanTypeLabel.Text = "Scan Type";
             // 
             // LogTimeLabel
@@ -151,7 +151,7 @@ namespace NTCSAttendanceStaffClient
             this.LogTimeLabel.Location = new System.Drawing.Point(12, 61);
             this.LogTimeLabel.Name = "LogTimeLabel";
             this.LogTimeLabel.Size = new System.Drawing.Size(101, 17);
-            this.LogTimeLabel.TabIndex = 24;
+            this.LogTimeLabel.TabIndex = 1;
             this.LogTimeLabel.Text = "Log Date/Time";
             // 
             // AttendanceLogEditorForm

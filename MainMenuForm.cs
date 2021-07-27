@@ -8,6 +8,7 @@ namespace NTCSAttendanceStaffClient
         public ManageStudentsForm ManageStudents = new ManageStudentsForm();
         public ManageFamiliesForm ManageFamilies = new ManageFamiliesForm();
         public ManageAttendanceLogForm ManageAttendance = new ManageAttendanceLogForm();
+        public ManageKioskMessagesForm ManageKioskMessages = new ManageKioskMessagesForm();
 
         public MainMenuForm()
         {
@@ -48,6 +49,12 @@ namespace NTCSAttendanceStaffClient
         }
 
         private void KioskMessagesButton_Click(object sender, EventArgs e)
+        {
+            ManageKioskMessages.Show();
+            ManageKioskMessages.Focus();
+        }
+
+        private void SendEmailsButton_Click(object sender, EventArgs e)
         {
 
         }
