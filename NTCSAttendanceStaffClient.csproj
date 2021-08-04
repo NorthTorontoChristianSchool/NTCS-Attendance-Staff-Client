@@ -87,6 +87,12 @@
     <Compile Include="FamilyEditorForm.Designer.cs">
       <DependentUpon>FamilyEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="KioskMessageEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KioskMessageEditorForm.Designer.cs">
+      <DependentUpon>KioskMessageEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FamilyEditorForm.resx">
       <DependentUpon>FamilyEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KioskMessageEditorForm.resx">
+      <DependentUpon>KioskMessageEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

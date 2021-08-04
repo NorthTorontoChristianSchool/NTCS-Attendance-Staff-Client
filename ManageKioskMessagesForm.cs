@@ -43,7 +43,7 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages WHERE DisplayOrder LIKE @Search OR DisplayMessage LIKE @Search";
+                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages WHERE DisplayOrder LIKE @Search OR DisplayMessage LIKE @Search ORDER BY DisplayOrder";
                             sqlCmd.Parameters.AddWithValue("@Search", "%" + SearchString + "%");
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
@@ -59,7 +59,7 @@ namespace NTCSAttendanceStaffClient
                         {
                             sqlCmd.Connection = conn;
                             sqlCmd.CommandType = CommandType.Text;
-                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages";
+                            sqlCmd.CommandText = "SELECT DisplayOrder AS 'Display Order', DisplayMessage AS 'Display Message', StartDate AS 'Start Date', ExpiryDate AS 'Expiry Date' FROM KioskPublicMessages ORDER BY DisplayOrder";
                             SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
 
                             DataTable dtRecord = new DataTable();
@@ -138,16 +138,16 @@ namespace NTCSAttendanceStaffClient
 
         private void NewStudentButton_Click(object sender, EventArgs e)
         {
-            StudentEditorForm sef = new StudentEditorForm();
-            sef.ShowDialog();
+            KioskMessageEditorForm kmef = new KioskMessageEditorForm();
+            kmef.ShowDialog();
             RefreshButton.PerformClick();
         }
 
         // Edit a student when the row in the DataGridView is double-clicked
         private void EditSelectedRow()
         {
-            StudentEditorForm sef = new StudentEditorForm(MessageDataGridView.SelectedRows[0].Cells["Student ID"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Family ID"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Last Name"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["First Name"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Homeroom"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Student Email"].Value.ToString(), MessageDataGridView.SelectedRows[0].Cells["Kiosk Personal Message"].Value.ToString(), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Kiosk Message Start Date"].Value.ToString()), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Kiosk Message Expiry Date"].Value.ToString()));
-            sef.ShowDialog();
+            KioskMessageEditorForm kmef = new KioskMessageEditorForm(Convert.ToInt32(MessageDataGridView.SelectedRows[0].Cells["Display Order"].Value.ToString()), MessageDataGridView.SelectedRows[0].Cells["Display Message"].Value.ToString(), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Start Date"].Value.ToString()), DateTime.Parse(MessageDataGridView.SelectedRows[0].Cells["Expiry Date"].Value.ToString()));
+            kmef.ShowDialog();
             RefreshButton.PerformClick();
         }
 
