@@ -23,9 +23,6 @@
     <Setting Name="SmtpFromEmail" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SmtpHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">smtp.gmail.com</Value>
-    </Setting>
     <Setting Name="RememberEmailLogin" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

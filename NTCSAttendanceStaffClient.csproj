@@ -74,6 +74,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbsentStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbsentStudentsForm.Designer.cs">
+      <DependentUpon>AbsentStudentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AttendanceLogEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,18 @@
       <DependentUpon>AttendanceLogEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlDoubleBuffering.cs" />
+    <Compile Include="EmailDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailDetailsForm.Designer.cs">
+      <DependentUpon>EmailDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmailSendingProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailSendingProgressForm.Designer.cs">
+      <DependentUpon>EmailSendingProgressForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FamilyEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,8 +161,17 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AbsentStudentsForm.resx">
+      <DependentUpon>AbsentStudentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AttendanceLogEditorForm.resx">
       <DependentUpon>AttendanceLogEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailDetailsForm.resx">
+      <DependentUpon>EmailDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailSendingProgressForm.resx">
+      <DependentUpon>EmailSendingProgressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FamilyEditorForm.resx">
       <DependentUpon>FamilyEditorForm.cs</DependentUpon>

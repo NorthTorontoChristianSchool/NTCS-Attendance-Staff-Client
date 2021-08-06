@@ -56,7 +56,14 @@ namespace NTCSAttendanceStaffClient
 
         private void SendEmailsButton_Click(object sender, EventArgs e)
         {
+            AbsentStudentsForm absentStudents = new AbsentStudentsForm();
+            absentStudents.ShowDialog();
 
+            if (absentStudents.SendEmailShow)
+            {
+                EmailDetailsForm emailDetails = new EmailDetailsForm();
+                emailDetails.ShowDialog();
+            }
         }
 
         // Click the exit button when closing so that the confirmation dialog pops up
